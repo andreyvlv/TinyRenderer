@@ -89,9 +89,7 @@ namespace TinyRenderer.Shaders
             var ref_l = Vector3.Normalize((Vector3.Multiply(n, Vector3.Dot(n, l) * 2) - l));
             
             float spec = (float)Math.Pow(Math.Max(ref_l.Z, 0.0f), Model.Specular(uv));
-            float diff = Math.Max(0, Vector3.Dot(n, l));
-
-            //color = Color.White; // for no texture testing
+            float diff = Math.Max(0, Vector3.Dot(n, l));           
 
             int r = ToByteRange(2 + color.R * shadow * (diff + .49 * spec));
             int g = ToByteRange(2 + color.G * shadow * (diff + .49 * spec));
